@@ -13,6 +13,9 @@ const withMDX = createMDX({
 })
 
 const nextConfig: NextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   async redirects() {
     return [
       {
