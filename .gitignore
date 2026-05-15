@@ -43,6 +43,8 @@ next-env.d.ts
 .cursorrules
 .vercel
 
+pnpm-workspace.yaml
+
 # local sharing folder
 /sharing
 

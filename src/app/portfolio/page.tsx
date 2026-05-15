@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Microscope, Rocket, BookOpen, Github, Link as LinkIcon, ExternalLink, Brain, Database, ImageIcon, SlidersHorizontal, Play } from "lucide-react";
+import { Microscope, Rocket, BookOpen, Github, Link as LinkIcon, ExternalLink, Brain, Database, ImageIcon, SlidersHorizontal } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
