@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-  devIndicators: false,
+  devIndicators: { buildActivity: false, appIsrStatus: false },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     unoptimized: true,
