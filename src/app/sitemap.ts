@@ -19,7 +19,7 @@ export default async function sitemap() {
       lastModified: buildDate,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/portfolio`,
       lastModified: buildDate,
     },
     {
@@ -43,7 +43,7 @@ export default async function sitemap() {
       lastModified: buildDate,
     },
     {
-      url: `${baseUrl}/achievements`,
+      url: `${baseUrl}/news`,
       lastModified: buildDate,
     },
     {

@@ -1,12 +1,17 @@
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
+import Link from 'next/link'
 import { format } from 'date-fns'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { getBlogPost, getBlogPosts } from '@/lib/mdx'
 import { BlogPlaceholder } from '@/components/ui/blog-placeholder'
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { mdxComponents } from '@/components/mdx/mdx-components'
+import { BackButton } from './back-button'
+import { Button } from '@/components/ui/button'
+import { SlidersHorizontal } from 'lucide-react'
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
@@ -81,6 +86,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
       </Script>
       <article className="container mx-auto px-4 py-16">
         <div className="mx-auto max-w-3xl">
+          <BackButton />
           <div className="mb-8">
             <div className="relative mb-8 aspect-video overflow-hidden rounded-lg">
               {post.image ? (
@@ -110,10 +116,22 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                   </span>
                 ))}
               </div>
+              {post.slides && (
+                <Link href={post.slides} target="_blank" rel="noopener noreferrer">
+                  <Button variant="default" size="sm">
+                    <SlidersHorizontal className="h-4 w-4 mr-2" />
+                    View Slides
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
           <div className="prose prose-gray dark:prose-invert max-w-none">
-            <MDXRemote source={post.content} components={mdxComponents} />
+            <MDXRemote
+              source={post.content}
+              components={mdxComponents}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            />
           </div>
         </div>
       </article>

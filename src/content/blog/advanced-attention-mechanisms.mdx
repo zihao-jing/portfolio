@@ -1,0 +1,25 @@
+---
+title: 'Advanced Attention Mechanisms in Transformers'
+date: '2024-11-10'
+description: 'A deep dive into modern attention variants—multi-head attention, sparse attention, linear attention, and efficient approximations—and their role in scaling transformers. Presented at UWO Seminar.'
+authors: ["zihao"]
+image: '/blog/talk_attention.png'
+tags: ['Transformers', 'Attention', 'Efficiency', 'Talks']
+slides: 'https://docs.google.com/presentation/d/1STRbJ3gAZDHOUxICb0eFriS9So1DzE_k-u6HD-NNeq8/edit?usp=sharing'
+---
+
+Presented at **UWO Seminar**, Western University.
+
+This seminar explores the evolution of the attention mechanism—from the original scaled dot-product attention in "Attention Is All You Need" to modern efficient variants that enable transformers to scale to longer contexts and larger models.
+
+## Topics Covered
+
+- **Scaled dot-product attention** — complexity analysis and the quadratic bottleneck
+- **Multi-head attention** — parallel subspace projections and positional representations
+- **Sparse & local attention** — Longformer, BigBird, and sliding-window patterns
+- **Linear attention** — kernel approximations that reduce O(n²) to O(n)
+- **Flash Attention** — IO-aware exact attention using tiling and recomputation
+- **Rotary Position Embeddings (RoPE)** — relative position encoding used in LLaMA and Mistral
+- **Multi-Query Attention & GQA** — reducing KV-cache memory at inference
+
+[Slides](https://docs.google.com/presentation/d/1STRbJ3gAZDHOUxICb0eFriS9So1DzE_k-u6HD-NNeq8/edit?usp=sharing)

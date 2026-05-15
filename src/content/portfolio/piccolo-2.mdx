@@ -1,0 +1,148 @@
+---
+title: 'Piccolo2: Task-Aware Loss Selection Lets One Model Excel Across All Embedding Tasks'
+date: '2024-05-11'
+description: 'General-purpose text embedding model that routes each training batch to its task-matched objective — SOTA on CMTEB with average score 70.95, outperforming models 20× larger. SenseTime Tech Report 2024.'
+image: '/projects/piccolo-gpt_paper.jpg'
+venue: 'SenseTime Tech Report 2024'
+paper: 'https://arxiv.org/abs/2405.06932'
+github: 'https://github.com/zihao-jing/piccolo-gpt'
+model: 'https://huggingface.co/selmisskilig/piccolo-gpt-zh'
+tags: ['Tech Report 2024', 'Text Embedding', 'Foundation Model', 'Contrastive Learning', 'Multi-task Learning', 'Matryoshka Representation', 'Chinese NLP', 'Information Retrieval', 'Open Source', 'HuggingFace']
+---
+
+**Situation:** Text embedding models are trained with a single loss regardless of task type, but retrieval, sentence similarity, and classification tasks have fundamentally different data structures — making any one objective a poor fit for all of them simultaneously. **Task:** Build a general-purpose text embedding model that achieves top performance across all six CMTEB task categories at once. **Action:** Designed a training framework that routes each data batch to the loss function best suited to its task type, combined with expanded embedding dimensions and multi-resolution training for flexible deployment. **Result:** Achieves a CMTEB average of 70.95 — surpassing all prior models at the 300M parameter scale and outperforming models 20× larger.
+
+---
+
+## Background & Challenge
+
+Text embedding benchmarks span six heterogeneous task families, yet existing models train with a single loss:
+
+**1. Loss-task mismatch.** The dominant contrastive loss works well for retrieval but is a poor fit for sentence similarity tasks, where labels are continuous scores rather than binary positives. Forcing all task types through the same objective creates a consistent performance ceiling across non-retrieval categories.
+
+**2. Representation capacity bottleneck.** Prior BERT-based embedding models fix output size at 768 dimensions. Larger dimensions improve performance, but production systems often need smaller vectors for speed and storage — with no principled way to cover the full deployment range from a single set of weights.
+
+---
+
+## Methodology
+
+### Task-Matched Loss Routing
+
+Instead of applying one loss to all data, each training batch is routed to the objective that matches its task type:
+
+- **Retrieval and Reranking** — standard in-batch contrastive loss; pulls query and positive passage together while treating other in-batch samples as negatives.
+- **Sentence Similarity** — a ranking loss that directly optimizes cosine similarity against fine-grained numerical labels, avoiding the information loss of binarizing continuous scores into triplets.
+- **Classification and Clustering** — each text is paired with its target label as the positive and other labels as negatives, converting supervised classification data into contrastive training without requiring cross-device negatives.
+
+Ablations confirm each routing decision matters: adding the sentence similarity loss raises the average from 68.75 to 69.87, and adding the classification loss further raises it to 70.95.
+
+### Dimension Scaling and Flexible Inference
+
+A learnable projection expands the backbone's 768-dim output to 1792, improving capacity without modifying pretrained weights. The model is simultaneously trained at multiple dimension checkpoints (256 to 1792), so any prefix of the full embedding vector is itself a valid, high-quality embedding — no retraining needed to match different deployment constraints.
+
+*MRL stability: reducing eval dimension from 1792 to 256 degrades average performance by under 1 point (70.95 → 69.99).*
+
+### Data Pipeline
+
+Piccolo2 trains on approximately 3.7M samples across all six task categories:
+
+| Task | Format | Volume |
+|------|--------|--------|
+| STS | text, text pair, score | 730k |
+| Pair Classification | text, text pair, score | 440k |
+| Retrieval (real) | query, pos, hard neg | 1.1M |
+| Retrieval (synthetic) | query, pos, hard neg | 200k |
+| Clustering | text, pos label, neg label | 1M |
+| Classification | text, pos label, neg label | 220k |
+
+Hard negatives for retrieval are mined from rank 50–100 to avoid annotation noise at rank 1.
+
+---
+
+## Results
+
+### Empirical Performance
+
+Evaluated on CMTEB (31 datasets, 6 task categories):
+
+| Task | Piccolo2 | Previous SOTA | Delta |
+|------|----------|---------------|-------|
+| Classification | **74.59** | 73.35 | +1.24 |
+| Clustering | **62.17** | 67.08 | −4.91 |
+| Pair Classification | **90.24** | 88.52 | +1.72 |
+| Reranking | **70.00** | 69.67 | +0.33 |
+| Retrieval | **74.36** | 74.05 | +0.31 |
+| STS | **63.50** | 62.46 | +1.04 |
+| **Average** | **70.95** | 69.07 | **+1.88** |
+
+Piccolo2 (300M parameters) beats gte-Qwen1.5-7B-instruct (7B parameters) by 1.39 points — demonstrating that task-matched training objectives outperform raw model scale for embedding evaluation.
+
+### Flexible Dimension Inference
+
+| Eval Dim | Average Score |
+|----------|--------------|
+| 1792 | 70.95 |
+| 1280 | 70.87 |
+| 768 | 70.69 |
+| 512 | 70.41 |
+| 256 | 69.99 |
+
+A single trained model covers the full production range with under 1-point degradation end-to-end.
+
+### Field Contribution
+
+Piccolo2 establishes that task-type-aware loss routing — matching each batch to the objective that fits its data structure — is a simple, reproducible win that requires no architectural changes. A single training run produces embeddings valid across the full deployment range, from high-dimension retrieval systems to storage-constrained applications.
+
+---
+
+## Open-Source Access
+
+Piccolo2 is fully open-sourced through SenseTime's HuggingFace organization:
+
+| Asset | Link |
+|-------|------|
+| Paper | [arXiv 2405.06932](https://arxiv.org/abs/2405.06932) |
+| Code | [github.com/zihao-jing/piccolo-gpt](https://github.com/zihao-jing/piccolo-gpt) |
+| Pretrained Model | [selmisskilig/piccolo-gpt-zh](https://huggingface.co/selmisskilig/piccolo-gpt-zh) |
+
+### Quick Start
+
+```bash
+pip install -r requirements.txt
+```
+
+### Load Model for Embedding
+
+```python
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("selmisskilig/piccolo-gpt-zh")
+embeddings = model.encode(["你好世界", "深度学习很有趣"])
+```
+
+### Run Finetuning
+
+```bash
+bash scripts/ft.sh
+```
+
+For training configuration, dataset layout, and DeepSpeed distributed training setup, see the [GitHub README →](https://github.com/zihao-jing/piccolo-gpt)
+
+---
+
+## Citation
+
+```bibtex
+@misc{2405.06932,
+  Author = {Junqin Huang and Zhongjie Hu and Zihao Jing and Mengya Gao and Yichao Wu},
+  Title  = {Piccolo2: General Text Embedding with Multi-task Hybrid Loss Training},
+  Year   = {2024},
+  Eprint = {arXiv:2405.06932},
+}
+```
+
+## Contact
+
+**Zihao Jing** (co-author) — [zjing29@uwo.ca](mailto:zjing29@uwo.ca)
+
+Questions about training recipes, dataset preparation, or using Piccolo2 as a baseline? Feel free to reach out.

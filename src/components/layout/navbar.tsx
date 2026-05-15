@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { ModeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { Code2, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -19,8 +19,8 @@ const routes = [
     label: "Home",
   },
   {
-    href: "/about",
-    label: "About",
+    href: "/portfolio",
+    label: "Portfolio",
   },
   {
     href: "/skills",
@@ -43,8 +43,8 @@ const routes = [
     label: "Blog",
   },
   {
-    href: "/achievements",
-    label: "Achievements",
+    href: "/news",
+    label: "News",
   },
   {
     href: "/contact",
@@ -110,20 +110,20 @@ export function Navbar() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      className="fixed top-0 left-0 right-0 z-50 w-full border-b border-white/10 dark:border-white/8 bg-transparent backdrop-blur-md"
     >
       <div className="container flex h-14 items-center">
         {/* Desktop Navigation */}
         <div className="hidden md:flex w-full items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground">
-              <Code2 className="h-4 w-4 transition-transform duration-300 group-hover:-rotate-45" />
-            </div>
+          <Link href="/" className="flex items-center text-lg select-none">
+            <span className="text-muted-foreground">&lt;</span>
+            <span className="px-1 font-bold" style={{ fontFamily: "Agustina, serif" }}>Zihao Jing</span>
+            <span className="text-muted-foreground">/&gt;</span>
           </Link>
 
           {/* Centered Navigation */}
-          <nav className="absolute left-1/2 -translate-x-1/2 flex items-center space-x-1 text-sm font-medium">
+          <nav className="flex-1 flex items-center justify-center space-x-1 text-sm font-medium mx-6">
             {routes.map((route) => (
               <Link
                 key={route.href}
@@ -131,13 +131,23 @@ export function Navbar() {
                 className="relative px-3 py-1.5 group transition-colors hover:text-foreground text-foreground/60 rounded-md"
               >
                 <span className="relative z-10">{route.label}</span>
-                <span className="absolute inset-0 bg-primary/10 rounded-md scale-95 opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100" />
+                <span className="absolute inset-0 bg-primary/10 rounded-md scale-95 opacity-0 transition-all duration-150 ease-out group-hover:scale-100 group-hover:opacity-100" />
               </Link>
             ))}
           </nav>
 
-          {/* Theme Toggle */}
-          <ModeToggle />
+          {/* Right side actions */}
+          <div className="flex items-center">
+            <ModeToggle />
+            <Link
+              href="https://zihao-jing.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-8 text-xs font-medium px-3 py-1.5 rounded-md text-foreground/60 hover:text-foreground hover:bg-primary/10 transition-colors"
+            >
+              Plain Version
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -161,10 +171,10 @@ export function Navbar() {
                   Main navigation menu for mobile devices
                 </SheetDescription>
               </SheetHeader>
-              <div className="flex items-center mb-8">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground">
-                  <Code2 className="h-4 w-4" />
-                </div>
+              <div className="flex items-center mb-8 text-lg select-none">
+                <span className="text-muted-foreground">&lt;</span>
+                <span className="px-1 font-bold" style={{ fontFamily: "Agustina, serif" }}>Zihao Jing</span>
+                <span className="text-muted-foreground">/&gt;</span>
               </div>
               <nav className="flex flex-col gap-4">
                 {routes.map((route) => (
@@ -175,16 +185,16 @@ export function Navbar() {
                     onClick={handleLinkClick}
                   >
                     <span className="relative z-10 text-foreground/60 group-hover:text-foreground transition-colors">{route.label}</span>
-                    <span className="absolute inset-0 bg-primary/10 rounded-md scale-95 opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100" />
+                    <span className="absolute inset-0 bg-primary/10 rounded-md scale-95 opacity-0 transition-all duration-150 ease-out group-hover:scale-100 group-hover:opacity-100" />
                   </Link>
                 ))}
               </nav>
             </SheetContent>
           </Sheet>
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground">
-              <Code2 className="h-4 w-4 transition-transform duration-300 group-hover:-rotate-45" />
-            </div>
+          <Link href="/" className="flex items-center text-lg select-none">
+            <span className="text-muted-foreground">&lt;</span>
+            <span className="px-1 font-bold" style={{ fontFamily: "Agustina, serif" }}>Zihao Jing</span>
+            <span className="text-muted-foreground">/&gt;</span>
           </Link>
           <ModeToggle />
         </div>

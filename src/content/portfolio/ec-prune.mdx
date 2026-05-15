@@ -1,0 +1,93 @@
+---
+title: 'EC-Prune: Removing Noisy Boundary Nodes Lets Any Graph Model Transfer Across Domains'
+date: '2026-05-14'
+description: 'Model-agnostic preprocessing that scores and removes boundary-noisy outer-layer nodes via an entropy–correlation criterion, achieving an average 14.1% gain across five spatiotemporal baselines under limited target data. ICML 2026 Workshop.'
+image: '/projects/ec-prune_arch.png'
+venue: 'ICML 2026 Workshop'
+github: 'https://github.com/zihao-jing/GP-TLSTGCN'
+tags: ['ICML 2026', 'Graph Neural Networks', 'Spatiotemporal Forecasting', 'Transfer Learning', 'Data-Centric AI', 'Traffic Prediction', 'Graph Pruning']
+---
+
+**Situation:** Graph models trained on one domain often degrade when deployed to a new one, partly because sensors at the graph boundary capture external signals not represented in the model — injecting noise that inflates distributional shift across domains. **Task:** Reduce cross-domain distributional shift at the data level, without requiring any changes to the downstream model. **Action:** Designed a preprocessing module that scores each node by how informative and temporally stable it is, then iteratively removes noisy outer-layer nodes to produce a compact, boundary-denoised graph that any model can use as a drop-in replacement. **Result:** Achieves an average 14.1% gain across five baselines spanning different architectural families on two cross-domain transfer benchmarks, without modifying any model.
+
+---
+
+## Background & Challenge
+
+Two compounding factors drive performance degradation in cross-domain graph transfer:
+
+**1. Boundary-induced noise inflates distributional shift.** Real-world graphs are open systems — nodes at the periphery are influenced by external regions not modeled in the graph. These boundary nodes carry confounded signals that vary systematically between domains, creating a source of distributional shift that prior work largely ignores while focusing on model-level adaptation.
+
+**2. Target data scarcity leaves no margin for error.** Cross-domain deployment typically has access to only a small fraction of target-domain training data. Under this constraint, any residual distributional mismatch — including boundary noise — compounds into significant performance degradation across all downstream metrics.
+
+---
+
+## Methodology
+
+<figure style={{marginBottom: '1.5rem', marginTop: '1rem'}}>
+  <img src="/projects/ec-prune_arch.png" alt="EC-Prune pipeline: raw graph with boundary noise → edge scoring → iterative outer-layer removal → compact boundary-denoised subgraph" style={{width: '100%', borderRadius: '0.5rem'}} />
+  <figcaption style={{fontSize: '0.75rem', textAlign: 'center', opacity: 0.6, marginTop: '0.25rem'}}>Figure 1: EC-Prune pipeline — (a) raw graph → (b) edge scoring → (c) iterative outer-layer removal → (d) denoised subgraph</figcaption>
+</figure>
+
+### Stage 1 — Edge Scoring
+
+Each edge is scored by two complementary signals: how variable each node's signal is (high entropy = informative) and how temporally correlated the two nodes are (high correlation = reliable). Nodes whose signals are confounded by external traffic tend to score low on correlation with their in-graph neighbors. Combining both signals into a single per-edge score filters out connections where one or both endpoints are boundary-noisy.
+
+*Ablation: using correlation alone or entropy alone both underperform the combined score; edge-level thresholding without the outer-layer removal step also fails to recover the full gain.*
+
+### Stage 2 — Iterative Outer-Layer Removal
+
+Edges below the score threshold are dropped. Nodes with too few remaining connections are identified as outer-layer and removed along with all their edges. This process repeats for several rounds, peeling away concentric rings of boundary noise. The result is a compact, boundary-denoised subgraph used as a drop-in replacement for the raw graph in both source pretraining and target fine-tuning.
+
+---
+
+## Results
+
+### Setup
+
+- **Transfer benchmarks**: METR-LA → PEMSD7-M and METR-LA → PEMS-BAY, using only **10%** of target-domain training data
+- **Baselines**: STGCN, DCRNN, Graph WaveNet, ASTGNN, PDFormer — spanning CNN, RNN, adaptive-graph, and Transformer architectures
+- **Evaluation**: MAE, MAPE (%), RMSE at 15-min and 30-min horizons
+- EC-Prune is added as a preprocessing step only; all other hyperparameters held fixed
+
+### Main Results
+
+| Model | Avg. Gain |
+|---|---|
+| STGCN + EC-Prune | 7.4% |
+| DCRNN + EC-Prune | 15.8% |
+| Graph WaveNet + EC-Prune | 8.7% |
+| ASTGNN + EC-Prune | 17.3% |
+| PDFormer + EC-Prune | 21.2% |
+| **Average** | **14.1%** |
+
+EC-Prune consistently reduces all three metrics for every baseline across both target datasets and both horizons. Uniform gains across CNN-based and Transformer-based architectures confirm the improvement is architecture-agnostic.
+
+### Ablation Study
+
+| Variant | MAE@15 | RMSE@15 |
+|---|---|---|
+| No pruning | 3.24 | 5.27 |
+| Correlation-only | 3.19 | 5.28 |
+| Entropy-only | 3.14 | 5.38 |
+| Score threshold, no outer-layer removal | 3.10 | 5.44 |
+| **EC-Prune (full)** | **3.09** | **5.17** |
+
+Edge-level thresholding alone does not eliminate all harmful boundary nodes — iterative outer-layer removal is essential for the full gain.
+
+### Field Contribution
+
+EC-Prune is the first method to target boundary-node noise as a principal source of cross-domain shift in spatiotemporal graph transfer, addressing it entirely at the data level without any model changes. The preprocessing step is model-agnostic, requires no additional parameters, and consistently improves any graph forecasting backbone — opening a complementary data-centric direction alongside model-level domain adaptation.
+
+---
+
+## Citation
+
+```bibtex
+@inproceedings{jing2026ecprune,
+  title={EC-Prune: Data-Centric Graph Pruning for Spatiotemporal Foundation Model Adaptation},
+  author={Anonymous Author(s)},
+  booktitle={ICML 2026 Workshop},
+  year={2026}
+}
+```

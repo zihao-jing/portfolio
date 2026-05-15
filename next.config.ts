@@ -13,6 +13,16 @@ const withMDX = createMDX({
 })
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/portfolio/piccolo-gpt',
+        destination: '/portfolio/piccolo-2',
+        permanent: true,
+      },
+    ]
+  },
+  devIndicators: false,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     unoptimized: true,

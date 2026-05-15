@@ -6,78 +6,44 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const experience = [
   {
-    company: "Cankaya University",
-    location: "Ankara, Turkey",
-    position: "Undergraduate Teaching Assistant",
-    period: "Nov 2024 - Present",
+    company: "SenseTime",
+    companyNote: null,
+    location: "Beijing, China",
+    position: "LLM Research Intern",
+    period: "Sep 2023 – Jun 2024",
     description: [
       {
-        id: "cankaya-1",
-        text: "Assisting in SENG271 (Software Project I), SENG272 (Software Project II), SENG384 (Software Project IV), SENG101 (Computer Programming I) and SENG102 (Computer Programming II) courses.",
+        id: "sensetime-1",
+        text: "Developed Piccolo-GPT, a dual-function LLM supporting both text embedding and generation within a single architecture.",
       },
       {
-        id: "cankaya-2",
-        text: "Supporting students with programming concepts, reviewing assignments, and providing guidance in software development projects.",
+        id: "sensetime-2",
+        text: "Trained general-purpose text embedding models (Piccolo2); top-1 on C-MTEB (May 2024).",
+      },
+      {
+        id: "sensetime-3",
+        text: "Fine-tuned a ~100B LLM for vertical livestream marketing for Sina Weibo.",
       },
     ],
   },
   {
-    company: "Tourist: Travel the World",
-    location: "Remote",
-    position: "Web Development Intern",
-    period: "July 2024 - Nov 2024",
+    company: "Jina AI",
+    companyNote: "acquired by Elastic",
+    location: "Beijing, China",
+    position: "AI Research Intern",
+    period: "Apr 2023 – Sep 2023",
     description: [
       {
-        id: "tourist-1",
-        text: "Collaborated with the development team to design and implement new features for the company's AI-powered travel planning platform.",
+        id: "jina-1",
+        text: "Implemented LLM-based denoising and sentiment analysis pipeline for Budweiser; reduced cost >13%.",
       },
       {
-        id: "tourist-2",
-        text: "Worked with web development technologies and contributed to both frontend and backend development tasks.",
+        id: "jina-2",
+        text: "Led evaluation and deploying of super-resolution models for commercialization.",
       },
       {
-        id: "tourist-3",
-        text: "Implemented CI/CD pipelines, managed containerized deployments, and optimized development workflows.",
-      },
-    ],
-  },
-  {
-    company: "Google Game and Application Academy",
-    location: "Istanbul, Turkey",
-    position: "Trainee",
-    period: "Nov 2023 - July 2024",
-    description: [
-      {
-        id: "google-1",
-        text: "Participated in a rigorous training program focused on game and application development using industry-standard tools and practices.",
-      },
-      {
-        id: "google-2",
-        text: "Collaborated on team projects, enhancing skills in software design, coding, and project management in a professional setting.",
-      },
-      {
-        id: "google-3",
-        text: "Engaged in hands-on learning and developed proficiency in modern development environments.",
-      },
-    ],
-  },
-  {
-    company: "G.Round",
-    location: "Los Angeles, CA (Remote)",
-    position: "QA Tester",
-    period: "May 2023 - May 2024",
-    description: [
-      {
-        id: "ground-1",
-        text: "Performed comprehensive testing of pre-release games to identify bugs, performance issues, and potential improvements.",
-      },
-      {
-        id: "ground-2",
-        text: "Provided detailed feedback and reports to developers, enhancing the overall quality and user experience of gaming products.",
-      },
-      {
-        id: "ground-3",
-        text: "Developed expertise in QA methodologies, tools, and processes while working within a dynamic international team.",
+        id: "jina-3",
+        text: "Contributed to RunGPT of LlamaIndex with our super-resolution pipeline.",
       },
     ],
   },
@@ -109,7 +75,7 @@ export default function ExperiencePage() {
       >
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Experience</h1>
         <p className="mt-4 text-gray-500 dark:text-gray-400 max-w-[700px]">
-          My professional journey and work experience.
+          My internship and industry experience.
         </p>
       </motion.div>
 
@@ -129,12 +95,15 @@ export default function ExperiencePage() {
               <div className="absolute left-[11px] top-8 h-full w-[2px] bg-gray-200 dark:bg-gray-800" />
             )}
             <div className="absolute left-0 top-2 h-6 w-6 rounded-full border-2 border-primary bg-background" />
-            
+
             <Card className="relative">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 flex-wrap">
                   <Briefcase className="h-5 w-5 text-primary" />
                   {exp.company}
+                  {exp.companyNote && (
+                    <span className="text-xs text-muted-foreground font-normal">({exp.companyNote})</span>
+                  )}
                 </CardTitle>
               </CardHeader>
               <CardContent className="grid gap-4">
@@ -166,4 +135,4 @@ export default function ExperiencePage() {
       </motion.div>
     </div>
   );
-} 
+}

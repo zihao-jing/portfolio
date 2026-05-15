@@ -135,7 +135,7 @@ export default function BlogPage() {
           Blog Posts
         </h1>
         <p className="mt-4 text-muted-foreground max-w-[700px]">
-          Thoughts, tutorials and insights about web development and technology.
+          Talks, tutorials and presentations about LLM and foundation models.
         </p>
       </motion.div>
 

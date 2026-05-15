@@ -26,6 +26,7 @@ export async function getBlogPosts(tag) {
             image: data.image,
             tags: data.tags || [],
             content,
+            slides: data.slides,
           }
         })
     )
@@ -53,12 +54,58 @@ export async function getBlogPost(slug) {
 export async function getAllTags() {
   const posts = await getBlogPosts()
   const tags = new Set()
-  
+
   for (const post of posts) {
     for (const tag of post.tags) {
       tags.add(tag)
     }
   }
-  
+
   return Array.from(tags).sort()
+}
+
+// ---- Portfolio ----
+
+export async function getPortfolioItems() {
+  try {
+    const contentDir = path.join(process.cwd(), 'src/content/portfolio')
+    const files = await fs.readdir(contentDir)
+    const items = await Promise.all(
+      files
+        .filter(file => file.endsWith('.mdx'))
+        .map(async file => {
+          const filePath = path.join(contentDir, file)
+          const source = await fs.readFile(filePath, 'utf8')
+          const { data, content } = matter(source)
+
+          return {
+            slug: file.replace('.mdx', ''),
+            title: data.title,
+            date: data.date,
+            description: data.description,
+            image: data.image,
+            tags: data.tags || [],
+            venue: data.venue || '',
+            paper: data.paper,
+            github: data.github,
+            model: data.model,
+            dataset: data.dataset,
+            video: data.video,
+            poster: data.poster,
+            slides: data.slides,
+            content,
+          }
+        })
+    )
+
+    return items.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  } catch (error) {
+    console.error('Error loading portfolio items:', error)
+    return []
+  }
+}
+
+export async function getPortfolioItem(slug) {
+  const items = await getPortfolioItems()
+  return items.find(item => item.slug === slug) || null
 } 

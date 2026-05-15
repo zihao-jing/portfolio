@@ -1,38 +1,78 @@
 {
   "posts": [
     {
-      "slug": "cursor-the-future-of-ai-powered-development",
-      "title": "Cursor: The Future of AI-Powered Development",
-      "date": "2024-11-27",
-      "description": "A deep dive into Cursor IDE - the game-changing development environment that's revolutionizing how we write code with AI assistance.",
-      "image": "https://bayburt.lu/blog/cursor-blog.jpg",
+      "slug": "demystifying-llms",
+      "title": "Demystifying LLMs: From Pretraining to Adaptation",
+      "date": "2025-03-15",
+      "description": "A comprehensive walkthrough of how large language models are built—covering pretraining objectives, tokenization, scaling laws, instruction tuning, and RLHF. Presented at UWORCS 2025.",
+      "image": "/blog/talk_demystifying_llms.png",
       "tags": [
-        "tools",
-        "development",
-        "AI",
-        "productivity"
+        "LLM",
+        "Pretraining",
+        "RLHF",
+        "Talks"
       ],
-      "content": "\r\nHey fellow developers! 👋 As a Computer Science student who's been neck-deep in various IDEs throughout my academic journey, I want to share my experience with a tool that's genuinely changed how I approach coding: Cursor IDE.\r\n\r\n## What is Cursor?\r\n\r\nIf you're familiar with VS Code (and let's be honest, who isn't?), think of Cursor as its AI-powered evolution. Built on the same foundations as VS Code, Cursor takes everything we love about our favorite editor and supercharges it with sophisticated AI capabilities.\r\n\r\n## Why Cursor Over Traditional IDEs?\r\n\r\nAs someone who's spent countless hours in VS Code, the transition to Cursor felt natural. But here's where it gets interesting - imagine having a pair programmer who:\r\n- Never gets tired\r\n- Has read practically every open-source codebase\r\n- Can explain complex code in simple terms\r\n- Helps you debug issues in seconds\r\n\r\nThat's Cursor for you.\r\n\r\n## The Game-Changing Features\r\n\r\n### 1. AI Chat That Actually Gets Context\r\n\r\nUnlike ChatGPT, which requires you to copy-paste code snippets and explain context repeatedly, Cursor's AI understands your entire codebase. It's like having a senior developer who's been working on your project since day one.\r\n\r\n```typescript\r\n// Instead of explaining your types and interfaces\r\ninterface User {\r\n  id: string;\r\n  name: string;\r\n  preferences: UserPreferences;\r\n}\r\n\r\n// Cursor already knows about them and can suggest implementations\r\n```\r\n\r\n### 2. The Composer - Your AI Pair Programmer\r\n\r\nThe Composer feature is where Cursor truly shines. It's not just about code completion; it's about code composition. Here's what makes it special:\r\n\r\n- **Contextual Understanding**: It doesn't just suggest the next line; it understands the broader architecture\r\n- **Multi-File Edits**: Can refactor code across multiple files while maintaining consistency\r\n- **Natural Language to Code**: Tell it what you want to build, and it creates the implementation\r\n\r\nFor example, you can say:\r\n\"Create a React component that fetches user data and displays it in a card with error handling\"\r\n\r\nAnd Cursor will generate a complete, production-ready component with proper error boundaries and loading states.\r\n\r\n### 3. Agent - Your Personal Dev Assistant\r\n\r\nThe Agent feature is like having a junior developer who can:\r\n- Set up project boilerplate\r\n- Add new features\r\n- Fix bugs\r\n- Explain complex code\r\n- Suggest optimizations\r\n\r\nBut unlike a junior dev, it has access to patterns from millions of codebases!\r\n\r\n## Tips for VS Code Users Transitioning to Cursor\r\n\r\n1. Keep your VS Code keybindings - Cursor supports them\r\n2. Start with the AI chat for code explanations\r\n3. Gradually explore the Composer for larger changes\r\n4. Use the Agent for repetitive tasks\r\n\r\n## The Learning Curve\r\n\r\nComing from VS Code, the learning curve is surprisingly gentle. The real challenge isn't learning new shortcuts or interfaces - it's learning to think differently about how you can leverage AI in your development workflow.\r\n\r\n## When to Use What?\r\n\r\n- **Quick Fixes**: AI Chat\r\n- **New Features**: Composer\r\n- **Project Setup/Maintenance**: Agent\r\n- **Complex Refactoring**: Combination of all three\r\n\r\n## Conclusion\r\n\r\nAs a student who's seen the evolution of development tools, Cursor feels like a glimpse into the future. It's not about replacing developers - it's about augmenting our capabilities and letting us focus on the creative aspects of coding.\r\n\r\nThe best part? It's free for individual use, making it accessible to students and professionals alike. If you're a VS Code user looking to level up your development game, Cursor is definitely worth trying out.\r\n\r\nRemember, the goal isn't to let AI write all your code - it's to use AI as a tool to become a more efficient and effective developer. Happy coding! 🚀\r\n\r\n## Resources\r\n\r\n- [Cursor Official Website](https://cursor.sh)\r\n- [Cursor Documentation](https://cursor.sh/docs)\r\n- [GitHub Repository](https://github.com/getcursor/cursor) "
+      "content": "\nPresented at **UWORCS 2025**, Western University.\n\nThis talk provides an accessible end-to-end walkthrough of modern large language models—from raw text pretraining to practical deployment. The goal is to demystify the engineering and research decisions behind models like GPT and LLaMA.\n\n## Topics Covered\n\n- **Tokenization & vocabulary design** — BPE, SentencePiece, and the trade-offs involved\n- **Pretraining objectives** — next-token prediction, masked language modeling, and why they work\n- **Scaling laws** — the Chinchilla compute-optimal regime and what it means for model design\n- **Instruction tuning** — supervised fine-tuning (SFT) on curated demonstrations\n- **Alignment via RLHF** — reward modeling, PPO, and DPO as a simpler alternative\n- **Practical considerations** — mixed precision, gradient checkpointing, and distributed training\n\n[Slides](https://docs.google.com/presentation/d/105Dl92sWjmfIBvktO7sYI4vSJDk_UJZfV4EJErDOlPU/edit?usp=sharing)\n",
+      "slides": "https://docs.google.com/presentation/d/105Dl92sWjmfIBvktO7sYI4vSJDk_UJZfV4EJErDOlPU/edit?usp=sharing"
     },
     {
-      "slug": "hello-world",
-      "title": "Hello World - My First Blog Post",
-      "date": "2024-11-26",
-      "description": "Welcome to my first blog post! Here I share my thoughts about web development and technology.",
-      "image": "https://bayburt.lu/blog/hello-world.jpg",
+      "slug": "deepseek-reinforcement-learning",
+      "title": "DeepSeek: Advanced Reinforcement Learning Approaches",
+      "date": "2025-02-10",
+      "description": "An analysis of the reinforcement learning techniques behind DeepSeek-R1—GRPO, outcome-supervised reward modeling, and the emergence of chain-of-thought reasoning without SFT. Presented at UWO Seminar.",
+      "image": "/blog/talk_deepseek.png",
       "tags": [
-        "general",
-        "introduction"
+        "Reinforcement Learning",
+        "LLM",
+        "Reasoning",
+        "Talks"
       ],
-      "content": "\r\nWelcome to my first blog post! I'm excited to share my thoughts and experiences with you.\r\n\r\n## What I'll Write About\r\n\r\n- Web Development\r\n- React and Next.js\r\n- UI/UX Design\r\n- Technology Trends\r\n\r\n```javascript\r\n// Here's a simple code example\r\nconst greeting = 'Hello, World!';\r\nconsole.log(greeting);\r\n```\r\n\r\nStay tuned for more content! "
+      "content": "\nPresented at **UWO Seminar**, Western University.\n\nDeepSeek-R1 demonstrated that strong reasoning capabilities can emerge from reinforcement learning alone, without relying on supervised fine-tuning on human-curated chain-of-thought data. This talk dissects the techniques that made this possible.\n\n## Topics Covered\n\n- **Group Relative Policy Optimization (GRPO)** — a simpler RL algorithm that avoids value function estimation\n- **Outcome-supervised reward modeling (ORM)** — rewarding correct final answers rather than per-step supervision\n- **Emergent chain-of-thought** — how extended thinking and self-verification arise from RL without explicit SFT\n- **Cold-start problem** — why pure RL from scratch is unstable and how DeepSeek addresses it\n- **DeepSeek-V3 architecture** — mixture of experts, multi-head latent attention, and FP8 training\n- **Comparison with OpenAI o1** — similarities, differences, and open-source implications\n\n[Slides](https://docs.google.com/presentation/d/1Ij5JzdSlkDElzGu_GH8X0KpTUmdcE581DAh5F3xsZ7o/edit?usp=sharing)\n",
+      "slides": "https://docs.google.com/presentation/d/1Ij5JzdSlkDElzGu_GH8X0KpTUmdcE581DAh5F3xsZ7o/edit?usp=sharing"
+    },
+    {
+      "slug": "alphafold-foundation-models",
+      "title": "AlphaFold and All-Atom Foundation Models",
+      "date": "2025-01-20",
+      "description": "From AlphaFold2 to AlphaFold3 and beyond—how protein structure prediction evolved into all-atom generative modeling with implications for drug discovery and molecular biology. Presented at UWO BioSeminar.",
+      "image": "/blog/talk_alphafold.png",
+      "tags": [
+        "Biology",
+        "Foundation Models",
+        "AlphaFold",
+        "Talks"
+      ],
+      "content": "\nPresented at **UWO BioSeminar**, Western University.\n\nThis talk traces the evolution of computational protein structure prediction—from the MSA-based transformer architecture of AlphaFold2 to the all-atom diffusion model in AlphaFold3—and discusses what these advances mean for AI-driven drug discovery.\n\n## Topics Covered\n\n- **The protein folding problem** — why predicting 3D structure from sequence is hard\n- **AlphaFold2 architecture** — Evoformer, triangle multiplicative updates, and structure module\n- **AlphaFold3** — unified all-atom prediction with a diffusion-based decoder for proteins, DNA, RNA, and small molecules\n- **ESM family (Meta AI)** — protein language models trained on evolutionary sequences\n- **RFdiffusion & ProteinMPNN** — generative models for de novo protein design\n- **Connections to my research** — how structure-grounded LLM reasoning builds on these representations\n- **Open challenges** — conformational ensembles, intrinsically disordered regions, and co-folding\n\n[Slides](https://docs.google.com/presentation/d/15MNJCwaaM1xNMckSdDilzoPtEAUjXHZDLlRBIzPqN1I/edit?usp=sharing)\n",
+      "slides": "https://docs.google.com/presentation/d/15MNJCwaaM1xNMckSdDilzoPtEAUjXHZDLlRBIzPqN1I/edit?usp=sharing"
+    },
+    {
+      "slug": "advanced-attention-mechanisms",
+      "title": "Advanced Attention Mechanisms in Transformers",
+      "date": "2024-11-10",
+      "description": "A deep dive into modern attention variants—multi-head attention, sparse attention, linear attention, and efficient approximations—and their role in scaling transformers. Presented at UWO Seminar.",
+      "image": "/blog/talk_attention.png",
+      "tags": [
+        "Transformers",
+        "Attention",
+        "Efficiency",
+        "Talks"
+      ],
+      "content": "\nPresented at **UWO Seminar**, Western University.\n\nThis seminar explores the evolution of the attention mechanism—from the original scaled dot-product attention in \"Attention Is All You Need\" to modern efficient variants that enable transformers to scale to longer contexts and larger models.\n\n## Topics Covered\n\n- **Scaled dot-product attention** — complexity analysis and the quadratic bottleneck\n- **Multi-head attention** — parallel subspace projections and positional representations\n- **Sparse & local attention** — Longformer, BigBird, and sliding-window patterns\n- **Linear attention** — kernel approximations that reduce O(n²) to O(n)\n- **Flash Attention** — IO-aware exact attention using tiling and recomputation\n- **Rotary Position Embeddings (RoPE)** — relative position encoding used in LLaMA and Mistral\n- **Multi-Query Attention & GQA** — reducing KV-cache memory at inference\n\n[Slides](https://docs.google.com/presentation/d/1STRbJ3gAZDHOUxICb0eFriS9So1DzE_k-u6HD-NNeq8/edit?usp=sharing)\n",
+      "slides": "https://docs.google.com/presentation/d/1STRbJ3gAZDHOUxICb0eFriS9So1DzE_k-u6HD-NNeq8/edit?usp=sharing"
     }
   ],
   "tags": [
-    "AI",
-    "development",
-    "general",
-    "introduction",
-    "productivity",
-    "tools"
+    "AlphaFold",
+    "Attention",
+    "Biology",
+    "Efficiency",
+    "Foundation Models",
+    "LLM",
+    "Pretraining",
+    "RLHF",
+    "Reasoning",
+    "Reinforcement Learning",
+    "Talks",
+    "Transformers"
   ]
 }

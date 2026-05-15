@@ -41,3 +41,6 @@ next-env.d.ts
 
 .cursorrules
 .vercel
+
+# local sharing folder
+/sharing

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Dancing_Script, Lora } from "next/font/google";
 import "./globals.css";
+import 'katex/dist/katex.min.css';
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { CenterFadeOverlay } from "@/components/layout/center-fade-overlay";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -11,40 +13,51 @@ const inter = Inter({
   preload: true,
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://bayburt.lu'
+const dancingScript = Dancing_Script({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-dancing',
+});
+
+const lora = Lora({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-heading',
+});
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://zihao-jing.github.io'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Barış Bayburtlu | Full Stack Developer',
-    template: 'Barış Bayburtlu | %s'
+    default: 'Zihao Jing | AI Researcher',
+    template: 'Zihao Jing | %s'
   },
-  description: 'Full Stack Developer specializing in React, Next.js, and modern web technologies. Exploring the intersection of design and development.',
-  keywords: ['Full Stack Developer', 'React', 'Next.js', 'TypeScript', 'Web Development', 'Software Engineer'],
-  authors: [{ name: 'Barış Bayburtlu' }],
-  creator: 'Barış Bayburtlu',
+  description: 'AI Researcher focused on multimodal reasoning, LLM alignment, and structure-grounded learning for biological and scientific applications.',
+  keywords: ['AI Researcher', 'LLM', 'Multimodal Reasoning', 'Machine Learning', 'NeurIPS', 'ICLR', 'ICML'],
+  authors: [{ name: 'Zihao Jing' }],
+  creator: 'Zihao Jing',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://bayburt.lu',
-    siteName: 'Barış Bayburtlu - Portfolio',
-    title: 'Barış Bayburtlu | Full Stack Developer',
-    description: 'Full Stack Developer specializing in React, Next.js, and modern web technologies.',
+    url: 'https://zihao-jing.github.io',
+    siteName: 'Zihao Jing - AI Researcher',
+    title: 'Zihao Jing | AI Researcher',
+    description: 'AI Researcher focused on multimodal reasoning, LLM alignment, and structure-grounded learning.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Barış Bayburtlu - Full Stack Developer'
+        alt: 'Zihao Jing - AI Researcher'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Barış Bayburtlu | Full Stack Developer',
-    description: 'Full Stack Developer specializing in React, Next.js, and modern web technologies.',
+    title: 'Zihao Jing | AI Researcher',
+    description: 'AI Researcher focused on multimodal reasoning, LLM alignment, and structure-grounded learning.',
     images: ['/og-image.jpg'],
-    creator: '@bariscmb'
   },
   robots: {
     index: true,
@@ -57,10 +70,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-  }
 };
 
 export default function RootLayout({
@@ -70,7 +79,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${dancingScript.variable} ${lora.variable}`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -78,8 +87,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">
+            <CenterFadeOverlay />
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pt-14">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

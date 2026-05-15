@@ -3,23 +3,26 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 
 const education = [
   {
-    school: "Cankaya University",
-    location: "Ankara, Turkey",
-    degree: "Bachelor of Engineering in Software",
-    period: "Oct. 2022 - June 2026 (Expected)",
-    gpa: "GPA: 3.19",
-    description: "Focused on software development and computer science fundamentals.",
+    school: "Western University",
+    location: "ON, Canada",
+    degree: "Master of Science in Computer Science (Research)",
+    period: "Sep 2024 – Jun 2026 (Expected)",
+    gpa: null,
+    supervisorName: "Prof. Pingzhao Hu",
+    supervisorUrl: "https://phulab.org/",
+    description: "Conducting research on LLM post-training, multimodal alignment, and structure-grounded reasoning. Avg. GPA 93/100",
   },
   {
-    school: "Icel Anatolian Highschool",
-    location: "Mersin, Turkey",
-    degree: "High School Diploma",
-    period: "Sep. 2017 - June 2021",
-    gpa: "GPA: 3.74 (92.6/100.0)",
-    description: "Graduated with honors.",
+    school: "Beihang University",
+    location: "Beijing, China",
+    degree: "Bachelor of Engineering in Software Engineering",
+    period: "Sep 2019 – Jun 2024",
+    gpa: "Graduated with Honors",
+    description: "Avg. GPA 3.6/4.0",
   },
 ];
 
@@ -49,7 +52,7 @@ export default function EducationPage() {
       >
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Education</h1>
         <p className="mt-4 text-gray-500 dark:text-gray-400 max-w-[700px]">
-          My academic journey and qualifications.
+          My education background.
         </p>
       </motion.div>
 
@@ -69,7 +72,7 @@ export default function EducationPage() {
               <div className="absolute left-[11px] top-8 h-full w-[2px] bg-gray-200 dark:bg-gray-800" />
             )}
             <div className="absolute left-0 top-2 h-6 w-6 rounded-full border-2 border-primary bg-background" />
-            
+
             <Card className="relative">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -90,7 +93,20 @@ export default function EducationPage() {
                       {edu.location}
                     </span>
                   </div>
-                  <p className="text-sm font-medium text-primary">{edu.gpa}</p>
+                  {"supervisorName" in edu && edu.supervisorName && (
+                    <p className="text-sm font-medium text-primary">
+                      Supervised by{" "}
+                      <Link
+                        href={(edu as { supervisorUrl: string }).supervisorUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-primary/80"
+                      >
+                        {edu.supervisorName}
+                      </Link>
+                    </p>
+                  )}
+                  {edu.gpa && <p className="text-sm font-medium text-primary">{edu.gpa}</p>}
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     {edu.description}
                   </p>
@@ -102,4 +118,4 @@ export default function EducationPage() {
       </motion.div>
     </div>
   );
-} 
+}

@@ -44,25 +44,28 @@ export function Footer() {
           </div>
           <div className="flex gap-4">
             <Link
-              href="https://github.com/byigitt"
+              href="https://github.com/zihao-jing"
               target="_blank"
               rel="noopener noreferrer"
+              title="GitHub"
               className="rounded-2xl bg-background p-2 hover:bg-accent"
             >
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </Link>
             <Link
-              href="https://linkedin.com/in/bbayburtlu"
+              href="https://www.linkedin.com/in/zihao-jing-65b506323/"
               target="_blank"
               rel="noopener noreferrer"
+              title="LinkedIn"
               className="rounded-2xl bg-background p-2 hover:bg-accent"
             >
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
             <Link
-              href="mailto:bbayburtlu@hotmail.com"
+              href="mailto:zihaoj24@gmail.com"
+              title="Email"
               className="rounded-2xl bg-background p-2 hover:bg-accent"
             >
               <Mail className="h-5 w-5" />
@@ -72,10 +75,10 @@ export function Footer() {
         </div>
         <div className="flex justify-center mt-2">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Barış Bayburtlu. All rights reserved.
+            © {currentYear} Zihao Jing. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
   );
-} 
+}

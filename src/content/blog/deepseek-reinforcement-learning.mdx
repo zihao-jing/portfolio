@@ -1,0 +1,24 @@
+---
+title: 'DeepSeek: Advanced Reinforcement Learning Approaches'
+date: '2025-02-10'
+description: 'An analysis of the reinforcement learning techniques behind DeepSeek-R1—GRPO, outcome-supervised reward modeling, and the emergence of chain-of-thought reasoning without SFT. Presented at UWO Seminar.'
+authors: ["zihao"]
+image: '/blog/talk_deepseek.png'
+tags: ['Reinforcement Learning', 'LLM', 'Reasoning', 'Talks']
+slides: 'https://docs.google.com/presentation/d/1Ij5JzdSlkDElzGu_GH8X0KpTUmdcE581DAh5F3xsZ7o/edit?usp=sharing'
+---
+
+Presented at **UWO Seminar**, Western University.
+
+DeepSeek-R1 demonstrated that strong reasoning capabilities can emerge from reinforcement learning alone, without relying on supervised fine-tuning on human-curated chain-of-thought data. This talk dissects the techniques that made this possible.
+
+## Topics Covered
+
+- **Group Relative Policy Optimization (GRPO)** — a simpler RL algorithm that avoids value function estimation
+- **Outcome-supervised reward modeling (ORM)** — rewarding correct final answers rather than per-step supervision
+- **Emergent chain-of-thought** — how extended thinking and self-verification arise from RL without explicit SFT
+- **Cold-start problem** — why pure RL from scratch is unstable and how DeepSeek addresses it
+- **DeepSeek-V3 architecture** — mixture of experts, multi-head latent attention, and FP8 training
+- **Comparison with OpenAI o1** — similarities, differences, and open-source implications
+
+[Slides](https://docs.google.com/presentation/d/1Ij5JzdSlkDElzGu_GH8X0KpTUmdcE581DAh5F3xsZ7o/edit?usp=sharing)
