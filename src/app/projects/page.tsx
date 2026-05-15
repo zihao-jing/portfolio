@@ -68,7 +68,7 @@ export default function ProjectsPage() {
     const measure = () => {
       const buttons = Array.from(container.children) as HTMLElement[];
       if (!buttons.length) return;
-      const tops = [...new Set(buttons.map(b => b.offsetTop))].sort((a, b) => a - b);
+      const tops = Array.from(new Set(buttons.map(b => b.offsetTop))).sort((a, b) => a - b);
       if (tops.length <= 3) { setVisibleCount(null); return; }
       const row4Top = tops[3];
       const firstOnRow4 = buttons.findIndex(b => b.offsetTop >= row4Top);
