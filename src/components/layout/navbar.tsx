@@ -140,7 +140,7 @@ export function Navbar() {
           <div className="flex items-center">
             <ModeToggle />
             <Link
-              href="https://zihao-jing.github.io/"
+              href="https://zihao-jing.github.io/plain/"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-8 text-xs font-medium px-3 py-1.5 rounded-md text-foreground/60 hover:text-foreground hover:bg-primary/10 transition-colors"

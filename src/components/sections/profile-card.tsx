@@ -43,7 +43,7 @@ export function ProfileCard() {
         <Link href="mailto:zihaoj24@gmail.com" title="Email">
           <Mail className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
         </Link>
-        <Link href="https://zihao-jing.github.io/academic-cv/" target="_blank" rel="noopener noreferrer" title="Plain Version">
+        <Link href="/CV.pdf" target="_blank" rel="noopener noreferrer" title="CV">
           <FileText className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
         </Link>
       </div>
