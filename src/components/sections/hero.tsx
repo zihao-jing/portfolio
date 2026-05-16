@@ -136,7 +136,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className={`max-w-[700px] md:text-xl ${isDark ? "text-white/55" : "text-black/55"}`}
           >
-            Building reliable LLMs for world understanding and human-centered intelligence.
+            Building trustworthy LLMs for world understanding and human-centered intelligence.
           </motion.p>
         </motion.div>
 

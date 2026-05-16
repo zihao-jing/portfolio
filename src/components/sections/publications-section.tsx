@@ -9,7 +9,7 @@ const mainPapers = [
   {
     venue: "ICML 2026",
     venueBg: "bg-orange-500",
-    question: "How can LLMs reason over structured entities of varying complexity?",
+    question: "Can LLMs Reason Over Complex Structures Without Wasting Tokens?",
     title: "Scaling-Aware Adapter for Structure-Grounded LLM Reasoning",
     authors: "Zihao Jing, Qiuhao Zeng, Ruiyi Fang, Yan Yi Li, Yan Sun, Boyu Wang, Pingzhao Hu",
     description:
@@ -17,12 +17,14 @@ const mainPapers = [
     image: "/projects/entroadap_paper.jpg",
     paperUrl: "https://arxiv.org/pdf/2602.02780",
     githubUrl: "https://github.com/zihao-jing/EntroAdap",
-    slug: "entroadap",
+    modelUrl: "https://huggingface.co/zihaojing/Cuttlefish",
+    datasetUrl: "https://huggingface.co/datasets/zihaojing/Cuttlefish-SFT-Data",
+    slug: "cuttlefish",
   },
   {
     venue: "ICLR 2026",
     venueBg: "bg-orange-500",
-    question: "How can LLMs understand 2D and 3D structure, such as molecules?",
+    question: "How Can LLMs Align With Structures Without Fixed-Size Bottlenecks?",
     title: "Entropy-Guided Dynamic Tokens for Graph-LLM Alignment in Molecular Understanding",
     authors: "Zihao Jing, Qiuhao Zeng, Ruiyi Fang, Yan Sun, Boyu Wang, Pingzhao Hu",
     description:
@@ -30,13 +32,15 @@ const mainPapers = [
     image: "/projects/dqformer_paper.jpg",
     paperUrl: "https://arxiv.org/pdf/2602.02742",
     githubUrl: "https://github.com/zihao-jing/DQ-Former",
+    modelUrl: "https://huggingface.co/zihaojing/EDT-Former-model",
+    datasetUrl: "https://huggingface.co/datasets/zihaojing/EDT-Former-sft-data",
     videoUrl: "https://www.loom.com/share/0f624c26551b4273b33371358c3164d3",
     slug: "edt-former",
   },
   {
     venue: "NeurIPS 2025",
     venueBg: "bg-purple-600",
-    question: "How can Transformers foundations faithfully embed 1D–3D structures?",
+    question: "Can Foundation Models Learn Reliable Representations from Noisy Structures?",
     title: "Structure-Aware Fusion with Progressive Injection for Multimodal Molecular Representation Learning",
     authors: "Zihao Jing, Yan Sun, Yan Yi Li, Sugitha Janarthanan, Alana Deng, Pingzhao Hu",
     description:
