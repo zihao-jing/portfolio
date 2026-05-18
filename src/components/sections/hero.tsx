@@ -134,7 +134,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className={`max-w-[700px] md:text-xl ${isDark ? "text-white/55" : "text-black/55"}`}
+            className={`md:text-xl ${isDark ? "text-white/55" : "text-black/55"}`}
           >
             Building trustworthy LLMs for world understanding and human-centered intelligence.
           </motion.p>
@@ -184,7 +184,7 @@ export function Hero() {
             { href: "https://x.com/zihao_jing",          icon: <Twitter   className="h-5 w-5" />, label: "Twitter/X", external: true },
             { href: "https://www.linkedin.com/in/zihao-jing-65b506323/", icon: <Linkedin className="h-5 w-5" />, label: "LinkedIn", external: true },
             { href: "mailto:zihaoj24@gmail.com",          icon: <Mail      className="h-5 w-5" />, label: "Email",    external: false },
-            { href: "/CV.pdf",                             icon: <FileText  className="h-5 w-5" />, label: "CV",       external: true },
+            { href: "/CV.pdf",                             icon: <FileText      className="h-5 w-5" />, label: "CV",     external: true },
           ].map(({ href, icon, label, external }) => (
             <Link key={label} href={href} title={label} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
               <Button

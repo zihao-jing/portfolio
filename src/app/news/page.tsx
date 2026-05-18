@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Trophy, Users, GraduationCap, Star, Medal, Briefcase, Timer } from "lucide-react";
+import { BookOpen, Trophy, Users, GraduationCap, Star, Medal, Briefcase } from "lucide-react";
 
 const newsItems = [
   {
@@ -61,14 +61,6 @@ const newsItems = [
     description: "\"Structure-Aware Fusion with Progressive Injection for Multimodal Molecular Representation Learning\" (MuMo) accepted at NeurIPS 2025. Builds a multimodal encoder that first stabilizes noisy 3D shape data into a reliable prior, solving longstanding instability in multimodal embeddings that incorporate 3D geometry.",
   },
   {
-    date: "May 2025",
-    sortKey: "2025-05",
-    category: "Personal",
-    icon: <Timer className="h-4 w-4" />,
-    title: "Toronto Full Marathon — 3:45",
-    description: "Completed the Toronto Full Marathon in 3 hours 45 minutes.",
-  },
-  {
     date: "Sep 2024",
     sortKey: "2024-09",
     category: "Education",
@@ -115,22 +107,6 @@ const newsItems = [
     icon: <Briefcase className="h-4 w-4" />,
     title: "Completed Jina AI Internship",
     description: "Concluded 5-month AI Research Internship at Jina AI.",
-  },
-  {
-    date: "Oct 2023",
-    sortKey: "2023-10",
-    category: "Personal",
-    icon: <Timer className="h-4 w-4" />,
-    title: "Beijing Marathon 2023",
-    description: "Completed the Beijing Marathon 2023.",
-  },
-  {
-    date: "May 2023",
-    sortKey: "2023-05",
-    category: "Personal",
-    icon: <Timer className="h-4 w-4" />,
-    title: "Qinhuangdao Marathon — 3:30",
-    description: "Completed the Qinhuangdao Full Marathon in 3 hours 30 minutes.",
   },
   {
     date: "Apr 2023",
