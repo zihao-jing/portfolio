@@ -1,7 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { AnimatedAside } from "@/components/sections/animated-aside";
 import { PublicationsSection } from "@/components/sections/publications-section";
-import { ResearchFundingSection, HonorsSection, AcademicServiceMentorshipSection } from "@/components/sections/service-section";
+import { ResearchFundingSection, HonorsSection, AcademicServiceMentorshipSection, TechnicalSkillsSection } from "@/components/sections/service-section";
 import { InternshipsSection, EducationSection } from "@/components/sections/edu-exp-section";
 import { TalksSection } from "@/components/sections/talks-section";
 import { ValuesSection } from "@/components/sections/values-section";
@@ -21,6 +21,7 @@ export default function Home() {
             <ResearchFundingSection />
             <InternshipsSection />
             <EducationSection />
+            <TechnicalSkillsSection />
             <TalksSection />
             <HonorsSection />
             <AcademicServiceMentorshipSection />

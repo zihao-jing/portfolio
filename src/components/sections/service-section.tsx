@@ -2,6 +2,84 @@
 
 import { motion } from "framer-motion";
 
+const technicalSkills = [
+  {
+    category: "LLM Post-Training & Multimodal AI",
+    years: "3 years (2023–2026)",
+    description:
+      "Post-training of large multimodal models (SFT, RL). First-author papers at NeurIPS, ICLR, ICML on structured reasoning and multimodal alignment.",
+    tools: ["PyTorch", "Transformers", "PEFT", "DeepSpeed", "HuggingFace", "W&B"],
+  },
+  {
+    category: "Large-Scale Distributed Training",
+    years: "3 years (2023–2026)",
+    description:
+      "HPC and cloud-scale training infrastructure. Trained models up to ~100B parameters on national supercomputing clusters.",
+    tools: ["Slurm", "DeepSpeed", "DDP / FSDP", "HPC", "Cloud Computing", "Docker", "Apptainer"],
+  },
+  {
+    category: "Software Engineering",
+    years: "5 years (2021–2026)",
+    description:
+      "Strong in data structures, algorithms, and full-stack development. Led 3 large production websites deployed in Shanghai G60, Beihang, and Chaoyang.",
+    tools: ["Python", "C / C++", "Java", "SQL", "Linux / Shell", "Docker"],
+  },
+  {
+    category: "Open-Source & ML Ecosystem",
+    years: "",
+    description:
+      "9+ models and 8+ datasets published with 2k+ total downloads. Experience with multi-agent systems, vector databases, and RAG pipelines.",
+    tools: ["HuggingFace Hub", "LlamaIndex", "Multi-Agent Systems", "Vector Databases", "RAG"],
+  },
+];
+
+export function TechnicalSkillsSection() {
+  return (
+    <section id="skills" className="py-12 border-t">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+      >
+        <h2 className="text-2xl font-bold mb-4">🛠 Technical Skills</h2>
+        <div className="space-y-4">
+          {technicalSkills.map((skill, i) => (
+            <motion.div
+              key={skill.category}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="border rounded-lg p-4 bg-card"
+            >
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="font-semibold text-sm">{skill.category}</span>
+                {skill.years && (
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded font-medium">
+                    {skill.years}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-muted-foreground mb-3">{skill.description}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {skill.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="text-xs px-2 py-0.5 rounded-full border border-border text-muted-foreground"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
 const reviewerRoles = [
   { venue: "ICML 2026", detail: "Conference Reviewer, 6 papers reviewed", award: "Gold Reviewer Award" },
   { venue: "ICLR 2026", detail: "Conference Reviewer, 5 papers reviewed" },

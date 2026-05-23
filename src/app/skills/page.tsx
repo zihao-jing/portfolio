@@ -1,29 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Cpu, Wrench, FlaskConical } from "lucide-react";
+import { Globe, Cpu, Wrench, FlaskConical, Code2, Network } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const skills = {
   research: {
     icon: <FlaskConical className="h-5 w-5" />,
-    title: "Research",
-    items: ["LLM Post-Training", "Pre-Training / Fine-Tuning", "Multimodal Alignment"],
+    title: "Research Focus",
+    items: [
+      "LLM Post-Training (SFT, RL)",
+      "Multimodal Alignment",
+      "Molecular Representation Learning",
+      "Structure-Grounded Reasoning",
+      "Embedding Models",
+    ],
+  },
+  mlEngineering: {
+    icon: <Cpu className="h-5 w-5" />,
+    title: "ML Engineering",
+    items: ["PyTorch", "Transformers (HuggingFace)", "PEFT", "DeepSpeed", "W&B", "DDP / FSDP", "Multi-GPU / Multi-Node Training"],
+  },
+  systems: {
+    icon: <Wrench className="h-5 w-5" />,
+    title: "Distributed Systems & Infrastructure",
+    items: ["Slurm", "HPC", "Cloud Computing", "Docker", "Apptainer", "Linux / Shell"],
+  },
+  software: {
+    icon: <Code2 className="h-5 w-5" />,
+    title: "Software Engineering",
+    items: ["Python", "C / C++", "Java", "SQL", "Full-Stack Development", "Data Structures & Algorithms"],
+  },
+  openSource: {
+    icon: <Network className="h-5 w-5" />,
+    title: "Open-Source & ML Ecosystem",
+    items: ["HuggingFace Hub", "LlamaIndex", "Multi-Agent Systems", "Vector Databases", "RAG Pipelines"],
   },
   languages: {
     icon: <Globe className="h-5 w-5" />,
     title: "Languages",
     items: ["English (Fluent)", "Chinese (Native)"],
-  },
-  systems: {
-    icon: <Wrench className="h-5 w-5" />,
-    title: "Systems & Programming",
-    items: ["Linux", "Slurm", "Docker", "HPC Workflows", "Python", "C/C++", "Java", "SQL"],
-  },
-  mlEngineering: {
-    icon: <Cpu className="h-5 w-5" />,
-    title: "ML Engineering",
-    items: ["PyTorch", "Transformers (HuggingFace)", "DeepSpeed", "DDP / FSDP", "Multi-GPU / Multi-Node Training"],
   },
 };
 
