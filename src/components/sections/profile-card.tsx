@@ -26,7 +26,7 @@ export function ProfileCard() {
       </div>
 
       <div className="flex flex-wrap gap-1.5 justify-center">
-        {["LLM Post-Training", "Multimodal Reasoning", "World Models"].map((tag) => (
+        {["LLM Post-Training", "Multimodal LLM"].map((tag) => (
           <span key={tag} className="text-xs px-2.5 py-0.5 rounded-full border border-border text-muted-foreground">
             {tag}
           </span>
