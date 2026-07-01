@@ -145,7 +145,7 @@ export function Navbar() {
               rel="noopener noreferrer"
               className="ml-8 text-xs font-medium px-3 py-1.5 rounded-md text-foreground/60 hover:text-foreground hover:bg-primary/10 transition-colors"
             >
-              Plain Version
+              Old Version
             </Link>
           </div>
         </div>

@@ -17,7 +17,7 @@ const aboutSections = [
     title: "Research Interests",
     icon: <Rocket className="h-5 w-5 text-primary" />,
     content:
-      "LLM post-training, multimodal alignment, evidence-grounded reasoning, LLM agents",
+      "LLM post-training, multimodal LLM, evidence-grounded reasoning, LLM agents",
   },
   {
     title: "Beyond Research",
@@ -31,7 +31,7 @@ const portfolioProjects = [
   {
     title: "Cuttlefish (ICML 2026)",
     description:
-      "Designed an entropy-guided adapter that focuses on instruction-relevant parts of 3D entities, solving the longstanding gap of LLMs treating all structural positions as equally important.",
+      "Designed an entropy-guided adapter that focuses on instruction-relevant parts of multimodal entities, solving the longstanding gap of LLMs treating all modality positions as equally important.",
     image: "/projects/cuttlefish_paper.png",
     slug: "cuttlefish",
     githubUrl: "https://github.com/zihao-jing/EntroAdap",
@@ -43,7 +43,7 @@ const portfolioProjects = [
   {
     title: "EDT-Former (ICLR 2026)",
     description:
-      "Built a dynamic connector that scales representation slots based on molecular complexity, bridging the gap of fixed-size connectors that lose structural detail for large entities.",
+      "Built a dynamic connector that scales representation slots based on the input complexity, bridging the gap of fixed-size connectors that lose detail for large multimodal inputs.",
     image: "/projects/dq-former_paper.png",
     slug: "edt-former",
     githubUrl: "https://github.com/zihao-jing/EDT-Former",
@@ -55,7 +55,7 @@ const portfolioProjects = [
   {
     title: "MuMo (NeurIPS 2025)",
     description:
-      "Built a multimodal encoder that first stabilizes noisy 3D shape data into a reliable prior, solving the longstanding instability in multimodal embeddings that incorporate 3D geometry.",
+      "Built a multimodal encoder that first stabilizes noisy 3D modality into a reliable prior, solving the longstanding instability in multimodal embeddings that incorporate 3D information.",
     image: "/projects/mumo_paper.jpg",
     slug: "mumo",
     githubUrl: "https://github.com/zihao-jing/MuMo",
@@ -125,7 +125,7 @@ export default function AboutPage() {
           Portfolio
         </h1>
         <p className="mt-4 text-muted-foreground max-w-[700px]">
-          <strong>About Me:</strong> I&apos;m an AI researcher and MSc student in Computer Science. My current work sits at the intersection of LLM post-training, multimodal alignment with a focus on structure-grounded reasoning.
+          <strong>About Me:</strong> I&apos;m an AI researcher and MSc student in Computer Science. My current work sits at the intersection of multimodal LLM and post-training, with a focus on evidence-grounded reasoning.
         </p>
       </motion.div>
 

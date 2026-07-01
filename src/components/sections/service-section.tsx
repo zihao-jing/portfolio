@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const technicalSkills = [
   {
-    category: "LLM Post-Training & Multimodal AI",
+    category: "LLM Post-Training & Multimodal LLM",
     years: "3 years (2023–2026)",
     description:
       "Post-training of large multimodal models (SFT, RL). First-author papers at NeurIPS, ICLR, ICML on structured reasoning and multimodal alignment.",
