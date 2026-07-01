@@ -11,13 +11,13 @@ const aboutSections = [
     title: "Hello, I'm Zihao",
     icon: <Microscope className="h-5 w-5 text-primary" />,
     content:
-      "A researcher focused on the intersection of structural reasoning and multimodal modeling to advance the frontier of reliable, human-centered AI.",
+      "A researcher focused on the intersection of multimodal LLM and post-training to advance the frontier of reliable, human-centered AI.",
   },
   {
     title: "Research Interests",
     icon: <Rocket className="h-5 w-5 text-primary" />,
     content:
-      "LLM post-training, multimodal alignment, structure-grounded reasoning, world models, and agents",
+      "LLM post-training, multimodal alignment, evidence-grounded reasoning, LLM agents",
   },
   {
     title: "Beyond Research",

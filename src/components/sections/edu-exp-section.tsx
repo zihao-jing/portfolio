@@ -17,6 +17,7 @@ const education = [
     location: "London, Canada",
     note: "Supervised by Prof. Pingzhao Hu",
     noteUrl: "https://phulab.org/",
+    honor: "Graduated with Honor",
   },
   {
     degree: "BEng, Software Engineering",
@@ -24,7 +25,7 @@ const education = [
     schoolUrl: "https://www.buaa.edu.cn/",
     period: "Sep 2019 – Jun 2024",
     location: "Beijing, China",
-    note: "Graduated with Honors",
+    note: "Graduated with Honor",
     noteUrl: null,
   },
 ];
@@ -78,12 +79,11 @@ export function EducationSection() {
                 </Link>
                 {". "}
                 <span className="text-muted-foreground">{e.location}.</span>{" "}
-                {e.noteUrl ? (
-                  <Link href={e.noteUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline">
-                    {e.note}.
-                  </Link>
-                ) : (
-                  <span className="text-muted-foreground">{e.note}.</span>
+                <span className="text-muted-foreground">{e.note}.</span>
+                {"honor" in e && e.honor && (
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded font-medium ml-1">
+                    {e.honor}
+                  </span>
                 )}
               </span>
             </li>

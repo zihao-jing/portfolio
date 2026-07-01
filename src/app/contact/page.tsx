@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Mail, Send, Linkedin, Twitter, Phone, MessageCircle } from "lucide-react";
+import { Github, Mail, Send, Linkedin, Twitter, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -120,7 +120,7 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle>Other Ways to Connect</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-5">
               <Link
                 href="mailto:zihaoj24@gmail.com"
                 className="flex items-center space-x-2 text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
@@ -155,10 +155,6 @@ export default function ContactPage() {
                 <Twitter className="w-5 h-5 flex-shrink-0" />
                 <span>x.com/zihao_jing</span>
               </Link>
-              <div className="flex items-center space-x-2 text-gray-500">
-                <Phone className="w-5 h-5 flex-shrink-0" />
-                <span>+1 613-866-7998 (Phone / WhatsApp)</span>
-              </div>
               <div className="flex items-center space-x-2 text-gray-500">
                 <MessageCircle className="w-5 h-5 flex-shrink-0" />
                 <span>WeChat: A2016A315214</span>

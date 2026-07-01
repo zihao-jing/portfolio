@@ -5,6 +5,14 @@ import { BookOpen, Trophy, Users, GraduationCap, Star, Medal, Briefcase } from "
 
 const newsItems = [
   {
+    date: "Jun 2026",
+    sortKey: "2026-06",
+    category: "Award",
+    icon: <Medal className="h-4 w-4" />,
+    title: "MSc Graduated with MSc Yearly Award",
+    description: "Completed MSc in Computer Science (Research) at Western University, recognized with the MSc Yearly Award.",
+  },
+  {
     date: "May 2026",
     sortKey: "2026-05",
     category: "Award",
@@ -18,7 +26,7 @@ const newsItems = [
     category: "Publication",
     icon: <BookOpen className="h-4 w-4" />,
     title: "Paper Accepted at ICML 2026",
-    description: "\"Scaling-Aware Adapter for Structure-Grounded LLM Reasoning\" accepted at ICML 2026. Introduces an entropy-guided adapter that focuses LLM attention on instruction-relevant parts of 3D biological entities.",
+    description: "\"Scaling-Aware Adapter for Structure-Grounded LLM Reasoning\" accepted at ICML 2026. Introduces an entropy-guided adapter that focuses LLM attention on instruction-relevant parts of 3D inputs.",
   },
   {
     date: "Apr 2026",

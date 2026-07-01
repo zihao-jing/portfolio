@@ -9,11 +9,11 @@ const mainPapers = [
   {
     venue: "ICML 2026",
     venueBg: "bg-orange-500",
-    question: "Can LLMs Reason Over Complex Structures Without Wasting Tokens?",
+    question: "Can LLMs Reason Over Multimodal Structures Without Wasting Tokens?",
     title: "Scaling-Aware Adapter for Structure-Grounded LLM Reasoning",
     authors: "Zihao Jing, Qiuhao Zeng, Ruiyi Fang, Yan Yi Li, Yan Sun, Boyu Wang, Pingzhao Hu",
     description:
-      "Designed a entropy-guided smart adapter that focuses on the instruction related parts of 3D entities, solving the longstanding gap of LLMs treating all positions as equally important. Achieves top-1 on 17 out of 18 biology QA benchmarks, making LLM-assisted structural research an operational reality.",
+      "Designed an entropy-guided smart adapter that focuses on the instruction-related parts of multimodal inputs, solving the longstanding gap of LLMs treating all positions as equally important. Achieves top-1 on 17 out of 18 benchmarks.",
     image: "/projects/entroadap_paper.jpg",
     paperUrl: "https://arxiv.org/pdf/2602.02780",
     githubUrl: "https://github.com/zihao-jing/EntroAdap",
@@ -24,11 +24,11 @@ const mainPapers = [
   {
     venue: "ICLR 2026",
     venueBg: "bg-orange-500",
-    question: "How Can LLMs Align With Structures Without Fixed-Size Bottlenecks?",
+    question: "How Can LLMs Understand Dynamic Modalities Without Fixed-Size Bottlenecks?",
     title: "Entropy-Guided Dynamic Tokens for Graph-LLM Alignment in Molecular Understanding",
     authors: "Zihao Jing, Qiuhao Zeng, Ruiyi Fang, Yan Sun, Boyu Wang, Pingzhao Hu",
     description:
-      "A dynamic connector that scales representation slots based on complexity, bridging the gap of fixed-size connectors that lose structural detail for large entities. The model ranks #1 on 20 of 21 understanding tasks and trains 3.5× faster under equivalent settings, directly advancing AI-driven drug design.",
+      "A dynamic connector that scales representation slots based on complexity, bridging the gap of fixed-size connectors that lose structural detail for large entities. The model ranks #1 on 20 of 21 understanding tasks and trains 3.5× faster under equivalent settings.",
     image: "/projects/dqformer_paper.jpg",
     paperUrl: "https://arxiv.org/pdf/2602.02742",
     githubUrl: "https://github.com/zihao-jing/DQ-Former",
@@ -40,11 +40,11 @@ const mainPapers = [
   {
     venue: "NeurIPS 2025",
     venueBg: "bg-purple-600",
-    question: "Can Foundation Models Learn Reliable Representations from Noisy Structures?",
+    question: "Can Multimodal Foundation Models Learn Reliable Representations from Noisy 3D?",
     title: "Structure-Aware Fusion with Progressive Injection for Multimodal Molecular Representation Learning",
     authors: "Zihao Jing, Yan Sun, Yan Yi Li, Sugitha Janarthanan, Alana Deng, Pingzhao Hu",
     description:
-      "Built an multimodal encoder that first stabilizes noisy 3D shape data into a reliable prior, solving the longstanding instability in multimodal embedding that incorporate 3D geometry. Ranks #1 on 22/29 molecular property benchmarks with up to 27% better accuracy, and was applied to pipeline for finding Pin1 inhibitors in cancer treatment.",
+      "Built a multimodal encoder that first stabilizes noisy 3D shape data into a reliable prior, solving the longstanding instability in multimodal embedding that incorporates 3D geometry. Ranks #1 on 22/29 benchmarks with up to 27% better accuracy.",
     image: "/projects/mumo_paper.jpg",
     paperUrl: "https://arxiv.org/abs/2510.23640",
     githubUrl: "https://github.com/zihao-jing/MuMo",
@@ -73,12 +73,6 @@ const additionalPapers = [
     title: "SAGA: Structural Aggregation Guided Alignment for Multiview Graph Domain Adaptation",
     venue: "ICLR 2026",
     authors: "Ruiyi Fang, Jingyu Zhao, ..., Zihao Jing, et al.",
-    url: null,
-  },
-  {
-    title: "Distilling and Adapting: A Topology-Aware Framework for Zero-Shot Interaction Prediction in Multiplex Biological Networks",
-    venue: "ICLR 2026",
-    authors: "Alana Deng, ..., Zihao Jing, Pingzhao Hu",
     url: null,
   },
 ];
@@ -133,7 +127,7 @@ export function PublicationsSection() {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.1 } } }}
-            className="flex flex-col sm:flex-row gap-5 border rounded-lg p-5 hover:shadow-md transition-shadow bg-card"
+            className="flex flex-col sm:flex-row sm:items-center gap-5 border rounded-lg p-5 hover:shadow-md transition-shadow bg-card"
           >
             {/* Paper figure */}
             <Link href={`/portfolio/${paper.slug}`} className="block flex-shrink-0 sm:w-48">
@@ -150,8 +144,6 @@ export function PublicationsSection() {
               <Link href={`/portfolio/${paper.slug}`} className="hover:underline">
                 <h3 className="font-semibold text-base leading-snug mb-1">{paper.question}</h3>
               </Link>
-              <p className="text-xs italic text-muted-foreground mb-1">{paper.title}</p>
-              <p className="text-xs text-muted-foreground mb-2">{renderAuthors(paper.authors)}</p>
               <p className="text-sm text-muted-foreground mb-3">{paper.description}</p>
               <div className="flex flex-wrap gap-3 text-xs">
                 <Link
@@ -262,17 +254,6 @@ export function PublicationsSection() {
             </li>
           ))}
         </ul>
-        <p className="text-xs text-muted-foreground mt-4">
-          For a complete list, see{" "}
-          <Link
-            href="https://scholar.google.ca/citations?user=xfvxo64AAAAJ&hl=en&oi=ao"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:underline"
-          >
-            Google Scholar
-          </Link>.
-        </p>
       </motion.div>
     </section>
   );

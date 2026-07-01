@@ -10,9 +10,9 @@ const skills = {
     title: "Research Focus",
     items: [
       "LLM Post-Training (SFT, RL)",
-      "Multimodal Alignment",
-      "Molecular Representation Learning",
-      "Structure-Grounded Reasoning",
+      "Multimodal LLM",
+      "Representation Learning",
+      "Evidence-Grounded Reasoning",
       "Embedding Models",
     ],
   },

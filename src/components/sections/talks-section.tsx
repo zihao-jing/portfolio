@@ -30,8 +30,8 @@ const talks = [
     blogSlug: "deepseek-reinforcement-learning",
   },
   {
-    title: "AlphaFold and All-Atom Foundation Models",
-    event: "UWO BioSeminar",
+    title: "AlphaFold and Foundation Models for Science",
+    event: "UWO Seminar",
     image: "/blog/talk_alphafold.png",
     slidesUrl:
       "https://docs.google.com/presentation/d/15MNJCwaaM1xNMckSdDilzoPtEAUjXHZDLlRBIzPqN1I/edit?usp=sharing",

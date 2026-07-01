@@ -3,25 +3,24 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
 
 const education = [
   {
     school: "Western University",
     location: "ON, Canada",
     degree: "Master of Science in Computer Science (Research)",
-    period: "Sep 2024 – Jun 2026 (Expected)",
-    gpa: null,
+    period: "Sep 2024 – Jun 2026",
+    gpa: "Graduated with Honor",
     supervisorName: "Prof. Pingzhao Hu",
-    supervisorUrl: "https://phulab.org/",
-    description: "Conducting research on LLM post-training, multimodal alignment, and structure-grounded reasoning. Avg. GPA 93/100",
+    supervisorUrl: null,
+    description: "Conducting research on LLM post-training, multimodal LLM, and evidence-grounded reasoning. Avg. GPA 93/100",
   },
   {
     school: "Beihang University",
     location: "Beijing, China",
     degree: "Bachelor of Engineering in Software Engineering",
     period: "Sep 2019 – Jun 2024",
-    gpa: "Graduated with Honors",
+    gpa: "Graduated with Honor",
     description: "Avg. GPA 3.6/4.0",
   },
 ];
@@ -95,15 +94,7 @@ export default function EducationPage() {
                   </div>
                   {"supervisorName" in edu && edu.supervisorName && (
                     <p className="text-sm font-medium text-primary">
-                      Supervised by{" "}
-                      <Link
-                        href={(edu as { supervisorUrl: string }).supervisorUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-primary/80"
-                      >
-                        {edu.supervisorName}
-                      </Link>
+                      Supervised by {edu.supervisorName}
                     </p>
                   )}
                   {edu.gpa && <p className="text-sm font-medium text-primary">{edu.gpa}</p>}

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     default: 'Zihao Jing | AI Researcher',
     template: 'Zihao Jing | %s'
   },
-  description: 'AI Researcher focused on multimodal reasoning, LLM alignment, and structure-grounded learning for biological and scientific applications.',
+  description: 'AI Researcher focused on multimodal LLM, LLM post-training, and evidence-grounded reasoning.',
   keywords: ['AI Researcher', 'LLM', 'Multimodal Reasoning', 'Machine Learning', 'NeurIPS', 'ICLR', 'ICML'],
   authors: [{ name: 'Zihao Jing' }],
   creator: 'Zihao Jing',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     url: 'https://zihao-jing.github.io',
     siteName: 'Zihao Jing - AI Researcher',
     title: 'Zihao Jing | AI Researcher',
-    description: 'AI Researcher focused on multimodal reasoning, LLM alignment, and structure-grounded learning.',
+    description: 'AI Researcher focused on multimodal LLM, LLM post-training, and evidence-grounded reasoning.',
     images: [
       {
         url: '/og-image.jpg',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Zihao Jing | AI Researcher',
-    description: 'AI Researcher focused on multimodal reasoning, LLM alignment, and structure-grounded learning.',
+    description: 'AI Researcher focused on multimodal LLM, LLM post-training, and evidence-grounded reasoning.',
     images: ['/og-image.jpg'],
   },
   robots: {

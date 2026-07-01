@@ -337,7 +337,7 @@ function Slide1() {
       location: "Beijing, China",
       degree: "Bachelor of Engineering in Software Engineering",
       period: "Sep 2019 - Jun 2024",
-      note: "Graduated with Honors",
+      note: "Graduated with Honor",
       description: "Avg. GPA 3.6/4.0.",
     },
   ];
